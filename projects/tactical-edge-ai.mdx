@@ -1,0 +1,150 @@
+---
+title: Tactical Edge AI Emulator
+description: Air-gapped deployment architecture for disconnected tactical networks using Kubernetes, Zarf, and Docker
+---
+
+## Overview
+
+The Tactical Edge AI Emulator demonstrates Defense Unicorns' strategy for deploying modern software to air-gapped, disconnected tactical networks. This fully offline deployment validates the precise DoD packaging pipeline required to bypass Authority to Operate (ATO) bottlenecks and physically deliver AI capabilities to contested environments.
+
+<Note>
+This project validates deployment strategies for **JADC2 (Joint All-Domain Command and Control)** architectures and tactical edge computing in denied environments.
+</Note>
+
+## Architecture Components
+
+The emulator leverages industry-standard tools adapted for secure, offline deployment:
+
+<CardGroup cols={3}>
+  <Card title="Kubernetes (K3s)" icon="dharmachakra">
+    Lightweight Kubernetes distribution optimized for edge deployment with minimal resource footprint
+  </Card>
+  <Card title="Zarf" icon="box">
+    DoD-compliant packaging tool that bundles applications for air-gapped deployment
+  </Card>
+  <Card title="Docker" icon="docker">
+    Containerization platform for portable, reproducible application deployment
+  </Card>
+</CardGroup>
+
+## Deployment Strategy
+
+<Steps>
+  <Step title="Package Application">
+    Bundle the AI application and all dependencies into a Zarf package that can be physically transported
+  </Step>
+  <Step title="Physical Transfer">
+    Move the packaged application to the air-gapped network via secure physical media
+  </Step>
+  <Step title="Deploy to K3s">
+    Extract and deploy the Zarf package to the lightweight Kubernetes cluster running on tactical hardware
+  </Step>
+  <Step title="Validate Operation">
+    Verify the AI emulator is operational without any external network connectivity
+  </Step>
+</Steps>
+
+## Authority to Operate (ATO) Bypass
+
+Traditional DoD software deployment faces significant delays due to Authority to Operate requirements. This architecture addresses those challenges:
+
+<Accordion title="Challenge: Traditional ATO Timeline">
+  Conventional software deployments can take 6-18 months to receive ATO approval, delaying critical capabilities from reaching warfighters.
+</Accordion>
+
+<Accordion title="Solution: Pre-Packaged, Validated Bundles">
+  By using Zarf to create pre-validated, immutable packages, the deployment bypasses many ATO bottlenecks. The entire application stack is validated once and deployed multiple times without network connectivity requirements.
+</Accordion>
+
+<Accordion title="Impact: Rapid Capability Delivery">
+  This approach enables rapid delivery of modern AI/ML capabilities to tactical units operating in contested or denied environments where traditional cloud connectivity is unavailable.
+</Accordion>
+
+## Technical Implementation
+
+### Air-Gapped Architecture
+
+```yaml
+# Example Zarf package configuration
+kind: ZarfPackageConfig
+metadata:
+  name: tactical-ai-emulator
+  version: 1.0.0
+  description: Air-gapped AI deployment for tactical edge
+
+components:
+  - name: k3s-cluster
+    required: true
+    manifests:
+      - name: k3s-config
+        files:
+          - cluster-config.yaml
+  
+  - name: ai-models
+    required: true
+    images:
+      - ai-inference-engine:latest
+      - model-server:v2.1
+    
+  - name: edge-runtime
+    required: true
+    charts:
+      - name: edge-orchestrator
+        version: 1.2.3
+```
+
+### Kubernetes Edge Configuration
+
+The K3s cluster is configured for minimal resource consumption while maintaining production-grade reliability:
+
+```bash
+# K3s installation for tactical edge
+curl -sfL https://get.k3s.io | sh -s - \
+  --write-kubeconfig-mode 644 \
+  --disable traefik \
+  --disable servicelb \
+  --node-taint edge=true:NoSchedule
+```
+
+## Use Cases
+
+<CardGroup cols={2}>
+  <Card title="Forward Operating Bases" icon="tower-observation">
+    Deploy AI capabilities to remote FOBs without reliable satellite connectivity
+  </Card>
+  <Card title="Naval Vessels" icon="ship">
+    Enable autonomous decision-making on ships operating under EMCON (emissions control)
+  </Card>
+  <Card title="Aircraft Systems" icon="plane">
+    Integrate edge AI into avionics systems for real-time threat analysis
+  </Card>
+  <Card title="Expeditionary Operations" icon="parachute-box">
+    Support rapid deployment units with pre-configured AI packages
+  </Card>
+</CardGroup>
+
+## Key Outcomes
+
+- **Zero Network Dependency**: Fully operational without external connectivity
+- **DoD Compliance**: Meets security requirements for classified networks
+- **Rapid Deployment**: Hours instead of months for capability delivery
+- **Physical Security**: No data exfiltration risk from disconnected systems
+
+<Warning>
+This architecture is specifically designed for environments where traditional cloud connectivity is unavailable or prohibited due to operational security requirements.
+</Warning>
+
+## Repository
+
+The complete architecture and implementation details are available on GitHub:
+
+<Card title="View GitHub Repository" icon="github" href="https://github.com/szakem81/Tactical-Leapfrog-Emulator">
+  Explore the full source code, deployment scripts, and documentation for the Tactical Edge AI Emulator
+</Card>
+
+## Related Technologies
+
+- **JADC2**: Joint All-Domain Command and Control
+- **MOSA**: Modular Open Systems Approach
+- **Zero Trust Architecture**: Security model for disconnected networks
+- **Defense Unicorns**: Commercial entity supporting DoD modernization

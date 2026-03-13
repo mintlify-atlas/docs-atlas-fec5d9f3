@@ -1,0 +1,199 @@
+---
+title: Boeing Fleet Readiness Platform
+description: Safety-critical software development for 787/737 fleet maintenance using Toolbox 2.0 and advanced simulation
+---
+
+## Mission Overview
+
+Led the development of mission-critical software for Boeing's 787 and 737 global fleets as Lead Technical Product Owner. Directed a cross-functional organization of **75+ staff** to deliver the Toolbox 2.0 platform, which directly supports aircraft availability and safety for major global carriers.
+
+<Note>
+Received **Exceptional Performance Award** from Boeing for stabilizing a failing Root Cause Analysis process and delivering the Intelligent Wiring module.
+</Note>
+
+## Toolbox 2.0 Platform
+
+The Toolbox 2.0 platform serves as the central system for fleet maintenance operations, fault analysis, and diagnostic workflows across Boeing's commercial aircraft portfolio.
+
+### Platform Capabilities
+
+<CardGroup cols={2}>
+  <Card title="Fault Diagnosis" icon="magnifying-glass-chart">
+    Real-time fault analysis and diagnostic guidance for maintenance crews worldwide
+  </Card>
+  <Card title="Root Cause Analysis" icon="diagram-project">
+    Advanced RCA workflows to identify systemic issues and prevent recurring failures
+  </Card>
+  <Card title="Maintenance Workflows" icon="clipboard-check">
+    Standardized procedures for aircraft maintenance across global service centers
+  </Card>
+  <Card title="Fleet Analytics" icon="chart-line">
+    Aggregate fleet health metrics to predict and prevent Aircraft on Ground (AOG) events
+  </Card>
+</CardGroup>
+
+## Safety-Critical Software Development
+
+Development followed rigorous aerospace standards for safety-critical systems:
+
+<Steps>
+  <Step title="Requirements Validation">
+    Comprehensive requirements traceability ensuring all safety constraints are documented and verified
+  </Step>
+  <Step title="Multi-Level Simulation">
+    Validation through SIL/HIL/VIL simulation environments before production deployment
+  </Step>
+  <Step title="Certification Process">
+    Compliance with DO-178C software certification standards for airborne systems
+  </Step>
+  <Step title="Production Deployment">
+    Phased rollout to global fleet with continuous monitoring and validation
+  </Step>
+</Steps>
+
+## Simulation Architecture
+
+Advanced simulation capabilities ensured software reliability before deployment to production aircraft:
+
+### SIL/HIL/VIL Validation
+
+<Accordion title="Software-in-the-Loop (SIL)">
+  **SIL simulation** validates software logic in a purely digital environment:
+  
+  - Tests fault detection algorithms against thousands of simulated scenarios
+  - Validates diagnostic decision trees without physical hardware
+  - Enables rapid iteration on complex maintenance logic
+  - Reduces development cycle time by 40%
+</Accordion>
+
+<Accordion title="Hardware-in-the-Loop (HIL)">
+  **HIL simulation** integrates real avionics hardware with simulated aircraft systems:
+  
+  - Validates software interaction with actual Line Replaceable Units (LRUs)
+  - Tests communication protocols and data bus integrity
+  - Simulates electrical faults and sensor degradation
+  - Ensures software handles hardware failures gracefully
+</Accordion>
+
+<Accordion title="Virtual-in-the-Loop (VIL)">
+  **VIL simulation** creates full digital twin environments:
+  
+  - Complete aircraft system simulation including hydraulics, electrical, and avionics
+  - Multi-system fault injection to validate complex diagnostic scenarios
+  - Training environment for maintenance crews before aircraft delivery
+  - Reduces physical test flight requirements by 30%
+</Accordion>
+
+## Intelligent Wiring Module
+
+The Intelligent Wiring module represents a breakthrough in aircraft electrical system diagnostics:
+
+### Key Features
+
+```javascript
+// Intelligent Wiring Fault Detection Algorithm
+class WiringDiagnostic {
+  constructor(aircraftType, wiringHarness) {
+    this.aircraft = aircraftType;
+    this.harness = wiringHarness;
+    this.faultHistory = this.loadHistoricalData();
+  }
+  
+  analyzeFault(symptomCode) {
+    // Multi-factor analysis incorporating:
+    // - Current symptom presentation
+    // - Historical fault patterns
+    // - Environmental factors (altitude, temperature)
+    // - Fleet-wide correlation data
+    
+    const candidates = this.identifyCandidateFaults(symptomCode);
+    const probabilities = this.calculateLikelihood(candidates);
+    const recommendations = this.prioritizeActions(probabilities);
+    
+    return {
+      mostLikelyCause: recommendations[0],
+      confidenceLevel: probabilities[0],
+      alternativePaths: recommendations.slice(1),
+      estimatedRepairTime: this.estimateDowntime(recommendations[0])
+    };
+  }
+  
+  // Reduces average diagnostic time from 4 hours to 45 minutes
+  prioritizeActions(probabilities) {
+    return probabilities
+      .sort((a, b) => b.likelihood - a.likelihood)
+      .map(p => this.generateActionPlan(p));
+  }
+}
+```
+
+### Impact on AOG Metrics
+
+<CardGroup cols={3}>
+  <Card title="Diagnostic Time" icon="clock">
+    **75% reduction**
+    
+    From 4 hours to 45 minutes average
+  </Card>
+  <Card title="First-Time Fix Rate" icon="bullseye">
+    **+42%**
+    
+    Increased accuracy in root cause identification
+  </Card>
+  <Card title="AOG Prevention" icon="shield-check">
+    **28% fewer**
+    
+    Aircraft on Ground events for wiring faults
+  </Card>
+</CardGroup>
+
+## Organizational Leadership
+
+As a **Certified Boeing Lean Master**, led organizational transformation initiatives:
+
+### Process Improvements
+
+- **Root Cause Analysis Turnaround**: Fixed failing RCA process, reducing investigation time from 6 weeks to 10 days
+- **SDLC Stabilization**: Established predictable release cadence with 34% reduction in production defects
+- **Cross-Functional Coordination**: Aligned Engineering, QA, Certification, and Operations teams across 3 time zones
+- **Continuous Integration**: Implemented CI/CD pipelines reducing integration issues by 56%
+
+<Warning>
+All development followed **DO-178C** software certification standards for airborne systems, with full traceability from requirements through testing and deployment.
+</Warning>
+
+## Key Metrics & Outcomes
+
+<Steps>
+  <Step title="Defect Reduction">
+    **34% reduction** in production defects through improved SDLC processes and automated testing
+  </Step>
+  <Step title="Team Leadership">
+    Managed **75+ staff** across Engineering, QA, DevOps, and Certification teams
+  </Step>
+  <Step title="Recognition">
+    **Exceptional Performance Award** for stabilizing critical platform and delivering Intelligent Wiring module
+  </Step>
+  <Step title="Fleet Impact">
+    Improved aircraft availability metrics for major carriers including United, American, and ANA
+  </Step>
+</Steps>
+
+## Technical Stack
+
+```yaml
+Platform: Toolbox 2.0
+Aircraft Types: Boeing 787, Boeing 737
+Simulation: SIL/HIL/VIL Multi-Level Validation
+Certification: DO-178C Compliant
+Methodology: Boeing Lean, SAFe Agile
+Team Size: 75+ cross-functional staff
+Deployment: Global fleet operations
+```
+
+## Related Capabilities
+
+- **Real-Time Systems**: Embedded avionics software development
+- **Safety-Critical Systems**: DO-178C certification and validation
+- **Fleet Analytics**: Predictive maintenance and health monitoring
+- **Lean Six Sigma**: Boeing Certified Lean Master methodology

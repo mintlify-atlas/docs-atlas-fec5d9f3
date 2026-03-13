@@ -1,0 +1,279 @@
+---
+title: Expedia Marketplace Modernization
+description: 0→1 Salesforce Service Cloud migration delivering $4.2M OpEx savings and 32% partner NPS increase
+---
+
+## Executive Summary
+
+Orchestrated a high-stakes, **0→1 migration** of Expedia Group's legacy B2B/B2C partner marketplace to Salesforce Service Cloud across four global business lines. This platform modernization delivered measurable business impact while navigating complex cross-functional compliance requirements across Legal, Risk, and Fraud organizations.
+
+<Note>
+**Combined Financial Impact**: $8.3M total value delivered
+- $4.2M annual OpEx savings
+- $2.7M incremental revenue
+- $1.4M manual cost reduction
+</Note>
+
+## Business Challenge
+
+Expedia's partner marketplace operated on fragmented legacy systems with no unified view of partner interactions, leading to:
+
+- Duplicated data across multiple systems
+- Manual case resolution processes
+- Inconsistent partner experience
+- Limited executive visibility into operations
+- Compliance gaps across Legal, Risk, and Fraud workflows
+
+## Migration Strategy
+
+<Steps>
+  <Step title="Discovery & Stakeholder Alignment">
+    Conducted comprehensive discovery across four business lines to map existing workflows, data dependencies, and compliance requirements. Secured executive sponsorship and cross-functional buy-in.
+  </Step>
+  <Step title="Common Operating Picture Design">
+    Architected unified data model providing 360° partner view. Established single source of truth for executive leadership and operational teams.
+  </Step>
+  <Step title="Compliance Negotiation">
+    Coordinated with Legal, Risk, and Fraud teams to ensure platform met all regulatory and security requirements. Achieved 100% security compliance certification.
+  </Step>
+  <Step title="Phased Migration Execution">
+    Executed zero-downtime migration across regions. Validated data integrity at each phase before proceeding to next business line.
+  </Step>
+  <Step title="Automation & Optimization">
+    Deployed automated case-resolution logic and API integrations to eliminate manual processes and improve partner experience.
+  </Step>
+</Steps>
+
+## Platform Architecture
+
+### Salesforce Service Cloud Implementation
+
+The platform provides comprehensive partner lifecycle management:
+
+<CardGroup cols={2}>
+  <Card title="360° Partner View" icon="eye">
+    Unified dashboard consolidating partner data from multiple sources
+  </Card>
+  <Card title="Automated Case Routing" icon="route">
+    Intelligent case assignment based on partner tier, issue type, and SLA requirements
+  </Card>
+  <Card title="API Integration Layer" icon="plug">
+    Real-time data synchronization with booking systems, payment platforms, and analytics
+  </Card>
+  <Card title="Compliance Workflows" icon="shield-halved">
+    Automated validation against Legal, Risk, and Fraud requirements
+  </Card>
+</CardGroup>
+
+## Data Pipeline Architecture
+
+### Automated API Ingestion
+
+Engineered automated data pipelines to eliminate manual data entry and ensure real-time accuracy:
+
+```javascript
+// API orchestration for partner data ingestion
+class PartnerDataPipeline {
+  constructor() {
+    this.salesforceClient = new SalesforceAPI();
+    this.bookingAPI = new BookingSystemAPI();
+    this.paymentAPI = new PaymentPlatformAPI();
+    this.fraudAPI = new FraudDetectionAPI();
+  }
+  
+  async ingestPartnerData(partnerId) {
+    try {
+      // Parallel data fetch from multiple sources
+      const [booking, payment, fraud] = await Promise.all([
+        this.bookingAPI.getPartnerMetrics(partnerId),
+        this.paymentAPI.getPaymentHistory(partnerId),
+        this.fraudAPI.getRiskProfile(partnerId)
+      ]);
+      
+      // Transform and validate data
+      const consolidatedData = this.transformToCommonSchema({
+        booking,
+        payment,
+        fraud
+      });
+      
+      // Validate compliance requirements
+      const validated = await this.validateCompliance(consolidatedData);
+      
+      // Update Salesforce with enriched data
+      return await this.salesforceClient.upsertPartner(validated);
+      
+    } catch (error) {
+      this.handleIngestionError(error, partnerId);
+    }
+  }
+  
+  // Eliminated 95% of manual data entry
+  validateCompliance(data) {
+    return {
+      legalApproved: this.checkLegalRequirements(data),
+      riskAssessed: this.assessRiskProfile(data),
+      fraudCleared: this.validateFraudChecks(data),
+      timestamp: new Date().toISOString()
+    };
+  }
+}
+```
+
+### Real-Time Data Synchronization
+
+<Accordion title="Booking System Integration">
+  Real-time synchronization of partner booking data:
+  
+  - Live inventory and availability updates
+  - Revenue attribution and commission calculation
+  - Booking modification and cancellation workflows
+  - Performance metrics aggregation
+  
+  **Impact**: 100% data accuracy, eliminating $800K annual reconciliation costs
+</Accordion>
+
+<Accordion title="Payment Platform Integration">
+  Automated payment processing and reconciliation:
+  
+  - Real-time payment status updates
+  - Automated commission disbursement
+  - Chargeback and dispute management
+  - Financial reporting and analytics
+  
+  **Impact**: $600K reduction in manual payment operations
+</Accordion>
+
+<Accordion title="Fraud Detection Integration">
+  Automated risk assessment for partner transactions:
+  
+  - Real-time fraud scoring
+  - Automated flagging of suspicious activity
+  - Compliance reporting for Legal and Risk teams
+  - Partner risk profile updates
+  
+  **Impact**: 43% reduction in fraudulent bookings
+</Accordion>
+
+## Automated Case Resolution
+
+Deployed intelligent automation to handle routine partner inquiries:
+
+```python
+# Automated case resolution logic
+class CaseResolutionEngine:
+    def __init__(self):
+        self.knowledge_base = KnowledgeBaseAPI()
+        self.ml_classifier = CaseClassificationModel()
+        self.automation_rules = AutomationRuleEngine()
+    
+    def process_case(self, case):
+        # Classify case type and urgency
+        classification = self.ml_classifier.predict(case)
+        
+        # Check for automated resolution path
+        if classification['automation_eligible']:
+            resolution = self.automation_rules.resolve(case)
+            
+            if resolution['success']:
+                self.close_case(case, resolution)
+                return {'status': 'auto_resolved', 'time': resolution['duration']}
+        
+        # Route to appropriate team if manual intervention needed
+        return self.route_to_specialist(case, classification)
+    
+    def resolve(self, case):
+        # Automated resolution for common scenarios:
+        # - Password resets
+        # - API credential regeneration
+        # - Standard policy inquiries
+        # - Booking status updates
+        
+        # Saved $4.2M annually in operational costs
+        pass
+```
+
+## Business Impact
+
+### Financial Outcomes
+
+<CardGroup cols={2}>
+  <Card title="OpEx Savings" icon="piggy-bank">
+    **$4.2M annually**
+    
+    Automated case resolution eliminated manual processing for 60% of partner inquiries
+  </Card>
+  <Card title="Incremental Revenue" icon="arrow-trend-up">
+    **$2.7M generated**
+    
+    Improved partner onboarding velocity increased marketplace inventory by 18%
+  </Card>
+  <Card title="Manual Cost Reduction" icon="hand-holding-dollar">
+    **$1.4M saved**
+    
+    Eliminated manual data entry and reconciliation processes
+  </Card>
+  <Card title="Partner NPS Increase" icon="heart">
+    **+32% improvement**
+    
+    Faster case resolution and improved partner experience
+  </Card>
+</CardGroup>
+
+## Cross-Functional Compliance
+
+Successfully navigated complex organizational requirements:
+
+<Steps>
+  <Step title="Legal Compliance">
+    Ensured all partner contracts and data handling met international legal requirements across 50+ jurisdictions
+  </Step>
+  <Step title="Risk Assessment">
+    Implemented automated risk scoring and partner vetting workflows approved by Enterprise Risk Management
+  </Step>
+  <Step title="Fraud Prevention">
+    Integrated real-time fraud detection with automated flagging and investigation workflows
+  </Step>
+  <Step title="Security Certification">
+    Achieved 100% adherence to Expedia's security compliance standards including SOC 2 and PCI DSS
+  </Step>
+</Steps>
+
+<Warning>
+All data migrations maintained **100% security compliance** with zero data breaches or compliance violations during the transition period.
+</Warning>
+
+## Technical Stack
+
+```yaml
+Platform: Salesforce Service Cloud
+Migration Scope: 4 global business lines
+Integrations:
+  - Booking Systems: REST API
+  - Payment Platforms: Real-time sync
+  - Fraud Detection: Event-driven
+  - Analytics: Data Lake pipeline
+Compliance:
+  - Legal: Contract management
+  - Risk: Automated scoring
+  - Fraud: Real-time detection
+Automation:
+  - Case Resolution: 60% automated
+  - Data Entry: 95% eliminated
+  - Reporting: Real-time dashboards
+```
+
+## Organizational Impact
+
+- **Executive Visibility**: Real-time dashboards providing C-suite visibility into partner operations
+- **Operational Efficiency**: 40% reduction in case resolution time
+- **Partner Satisfaction**: 32% increase in partner Net Promoter Score
+- **Scalability**: Platform supports 3x growth without additional headcount
+- **Time to Market**: Reduced partner onboarding from 6 weeks to 10 days
+
+## Related Capabilities
+
+- **Enterprise SaaS Migration**: 0→1 platform modernization
+- **API Orchestration**: Complex system integration
+- **Data Pipeline Engineering**: Real-time data synchronization
+- **Compliance Management**: Multi-stakeholder regulatory alignment
