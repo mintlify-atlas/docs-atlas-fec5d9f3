@@ -1,0 +1,75 @@
+{
+  "projectType": "general",
+  "projectName": "Shem Zakem Portfolio",
+  "projectDescription": "Professional portfolio showcasing strategic technical leadership across defense, aerospace, enterprise SaaS, and hardware ventures.",
+  "theme": "linden",
+  "primaryColor": "#00aeef",
+  "lightColor": "#f7931e",
+  "darkColor": "#030406",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Portfolio",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "introduction",
+              "background"
+            ]
+          },
+          {
+            "group": "Professional Experience",
+            "pages": [
+              "experience/defense",
+              "experience/enterprise",
+              "experience/ventures"
+            ]
+          },
+          {
+            "group": "Projects & Achievements",
+            "pages": [
+              "projects/tactical-edge-ai",
+              "projects/boeing-fleet-readiness",
+              "projects/expedia-modernization",
+              "projects/green-box-batteries"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Resources",
+        "groups": [
+          {
+            "group": "Documentation",
+            "pages": [
+              "resources/resume",
+              "resources/patent",
+              "resources/contact"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Strategic Technical Leadership with 15+ years experience",
+    "Combat Veteran with 82nd Airborne Division",
+    "JADC2 & Multi-Domain Operations Architecture",
+    "Enterprise SaaS/PaaS Platform Modernization",
+    "U.S. Patent #9,276,418 for IoT Battery Exchange System",
+    "Boeing Certified Lean Master & SAFe Agilist",
+    "Delivered $10M+ combined P&L impact",
+    "Techstars Alumni & Hardware Startup Founder"
+  ],
+  "publicApiSurface": [
+    "Defense & Aerospace Experience",
+    "Enterprise Cloud & SaaS Leadership",
+    "Hardware-to-SaaS Venture Experience",
+    "JADC2 Architecture & Real-Time Systems",
+    "Large-Scale Platform Modernization",
+    "IoT & Edge Computing Solutions",
+    "Agile & Lean Process Optimization",
+    "U.S. Patent Portfolio"
+  ]
+}
